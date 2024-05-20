@@ -22,6 +22,7 @@ deploy_server:
 	    --environment='$(shell tr -s '\r\n' ',' < Server/Messages.Api/.env | cut -c 4-)'\
 	    --execution-timeout 30s \
 		--min-instances $(PREP_INSTANCES) \
+		--concurrency $(SLS_CONCURRENCY)
 
 update_server: update_server_ver update_server_image deploy_server
 
