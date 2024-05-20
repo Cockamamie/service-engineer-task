@@ -39,11 +39,11 @@ const sendButton = document.querySelector('.send-message-button');
 sendButton.onclick = handleSendButtonClick
 
 async function handleSendButtonClick() {
-    const text = document.querySelector("#message").value;
+    const textInput = document.querySelector("#message");
     const time = new Date();
-    await sendMessageAsync(text, new Date().toISOString());
-    text.value = '';
-    addMessage(true, text, getTimeWithoutSeconds(time.toLocaleTimeString()));
+    await sendMessageAsync(textInput.value, new Date().toISOString());
+    textInput.value = '';
+    addMessage(true, textInput.value, getTimeWithoutSeconds(time.toLocaleTimeString()));
 }
 
 async function getMessagesAsync() {
