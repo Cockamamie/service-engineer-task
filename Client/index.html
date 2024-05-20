@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+    <script src="script.js" type="module"></script>
+</head>
+<style>
+    body {
+        font-family: "Golos Text", sans-serif;
+        margin: 0;
+        background-color: #03081B;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    h1, h2, h3, h4, p {
+        margin: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        height: 100vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        background-color: #110F2C;
+    }
+
+    .messages-container {
+        width: 100%;
+        flex-grow: 1;
+        /*padding: 0 10px;*/
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        max-height: 80vh;
+    }
+
+    .messages {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 100px;
+        overflow-y: auto;
+    }
+
+    .messages-item {
+        display: flex;
+    }
+
+    .messages-item:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .message-content-container {
+        display: flex;
+        gap: 20px;
+        align-items: flex-end;
+        max-width: 70%;
+    }
+
+    .message-owned {
+        justify-content: flex-start;
+    }
+
+    .message-unfamiliar {
+        justify-content: flex-end;
+    }
+
+    .message-owned .message-text {
+        background-color: #1AB3D5;
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 10px;
+    }
+
+    .message-unfamiliar  .message-text {
+        background-color: #FE25A7;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 10px;
+    }
+
+    .message-text {
+        padding: 10px 5px;
+        font-size: 24px;
+        color: #ffffff;
+        word-break: break-all;
+        word-wrap: anywhere;
+    }
+
+    .message-time {
+        font-size: 14px;
+        color: darkgray;
+        font-weight: 600;
+    }
+
+    .send-message-container {
+        display: flex;
+        position: relative;
+        align-items: flex-end;
+        margin-bottom: 30px;
+        background-color: slategray;
+    }
+
+    #message {
+
+        border: none;
+        outline: none;
+        resize: none;
+        overflow: auto;
+        column-count: 10;
+        color: white;
+        background-color: slategray;
+        font-family: "Golos Text", sans-serif;
+        font-size: 16px;
+        max-width: 80%;
+    }
+
+    .send-message-button {
+        position: absolute;
+        right: 10px;
+        bottom: 5px;
+        height: 50px;
+        width: 100px;
+        flex-shrink: 1;
+        border-radius: 15px;
+        background-color: #110F2C;
+        color: #1AB3D5;
+        font-size: 24px;
+        border: 2px solid white;
+    }
+
+    .versions-info-container {
+        position: fixed;
+        bottom: 15px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+        color: #ffffff;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="messages-container">
+            <ul class="messages">
+<!--                <li class="messages-item">-->
+<!--                    <span class="message-text">Привет</span>-->
+<!--                    <span class="message-time">22:03</span>-->
+<!--                </li>-->
+            </ul>
+        </div>
+        <div class="send-message-container">
+            <label for="message"></label>
+            <textarea id="message" placeholder="Write a message..." rows="8"></textarea>
+            <button class="send-message-button">==></button>
+        </div>
+    </div>
+    <div class="versions-info-container">
+        <span class="client-version"></span>
+        <span class="server-replica-name"></span>
+        <span class="server-version"></span>
+    </div>
+</body>
+</html>
