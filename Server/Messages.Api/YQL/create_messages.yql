@@ -1,0 +1,8 @@
+CREATE TABLE messages
+(
+    id String NOT NULL,
+    text Utf8 NOT NULL,
+    user_id String NOT NULL,
+    send Datetime NOT NULL,
+    PRIMARY KEY (id)
+)
