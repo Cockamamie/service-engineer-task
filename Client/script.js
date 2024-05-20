@@ -31,8 +31,8 @@ const messagesList = document.querySelector('.messages');
 
 for (const message of messages) {
     const isCurrentUserMessage = currentUserId === message.userId;
-    const slicedTime = new Date(message.send).toLocaleTimeString().split(':');
-    addMessage(isCurrentUserMessage, message.text, slicedTime[0] + ':' + slicedTime[1]);
+    const localTime = new Date(message.send).toLocaleTimeString();
+    addMessage(isCurrentUserMessage, message.text, getTimeWithoutSeconds(localTime));
 }
 
 const sendButton = document.querySelector('.send-message-button');
@@ -40,9 +40,10 @@ sendButton.onclick = handleSendButtonClick
 
 async function handleSendButtonClick() {
     const text = document.querySelector("#message").value;
-    const time = new Date()
+    const time = new Date();
     await sendMessageAsync(text, new Date().toISOString());
-    addMessage(true, text, time.toLocaleTimeString())
+    text.value = '';
+    addMessage(true, text, getTimeWithoutSeconds(time.toLocaleTimeString()));
 }
 
 async function getMessagesAsync() {
@@ -101,4 +102,9 @@ function getCookieValue(name)
     if (match) {
         return match[2]
     }
+}
+
+function getTimeWithoutSeconds(time) {
+    const slicedTime = time.split(':');
+    return slicedTime[0] + ':' + slicedTime[1];
 }

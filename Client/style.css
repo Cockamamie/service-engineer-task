@@ -82,7 +82,7 @@ h1, h2, h3, h4, p {
     padding: 10px 5px;
     font-size: 24px;
     color: #ffffff;
-    word-break: break-all;
+    /*word-break: break-word;*/
     word-wrap: anywhere;
 }
 
@@ -101,17 +101,16 @@ h1, h2, h3, h4, p {
 }
 
 #message {
-
+    flex-grow: 1;
     border: none;
     outline: none;
     resize: none;
     overflow: auto;
-    column-count: 10;
     color: white;
     background-color: slategray;
     font-family: "Golos Text", sans-serif;
     font-size: 16px;
-    max-width: 80%;
+    max-width: 75%;
 }
 
 .send-message-button {
